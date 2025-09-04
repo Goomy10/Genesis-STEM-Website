@@ -1,0 +1,320 @@
+:root {
+  --primary-colour: #f89b29;
+  --hot-pink: #ff0f7b;
+  --beige: #f7c794;
+}
+
+html,
+
+.alfa-slab-one-regular {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cardo-regular {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* stops sideways scrolling */
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: "Cardo", serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: relative;
+  background: linear-gradient(to right, var(--hot-pink), var(--primary-colour));
+  color: black;
+  padding: 0.25rem 1rem;
+  display: flex;
+  flex-direction: column; /* nav/image on top, title below */
+  align-items: center;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-title {
+  font-family: "Alfa Slab One", serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: white;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* covers the entire header */
+  background: rgba(0, 0, 0, 0.3); /* darkness tint */
+  z-index: 0;
+}
+
+header * {
+  position: relative; /* keeps text & image above overlay */
+  z-index: 1;
+}
+
+nav {
+  padding: 0; /* removes extra height */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem; /* space between links */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  font-family: 'Nebula Sans', sans-serif;
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--hot-pink);
+}
+
+.genesis-header-image img {
+  display: block;
+  height: auto;
+}
+
+main {
+  font-family: "Cardo", serif;
+  padding: 2rem;
+}
+
+footer {
+  background-color: var(--beige);
+  font-family: "Alfa Slab One", serif;
+  font-size: x-large;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.card {
+  background: linear-gradient(to left, var(--hot-pink), var(--primary-colour));
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: var(--primary-colour);
+  padding: 2.5rem;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+.card.in-view {
+  transform: scale(1.02);
+}
+
+.card img{
+  width: 100%;
+  max-width: 600px;
+}
+
+.card iframe {
+  width: 100% !important;  /* fill card width */
+  max-width: 100%;         /* prevent overflow */
+  border-radius: 8px;      /* optional: match card style */
+}
+
+
+h2 {
+  border-bottom: 2px solid var(--hot-pink);
+  padding-bottom: 0.3rem;
+  font-family: "Alfa Slab One", serif;
+  font-weight: lighter;
+}
+
+h3 {
+  font-family: "Cardo", serif;
+  font-weight: bolder;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--beige);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--hot-pink);
+  transform: scale(1.05);
+}
+
+.sub-header {
+  font-family: "Alfa Slab One", serif;
+  color: white;
+  font-weight: lighter;
+  font-size: xx-large;
+  padding: 0.75rem 1rem;
+  margin-top: 0;
+  position: relative;
+}
+.sub-header::before {
+  display: none; /* not needed anymore */
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* centers any incomplete row */
+  margin-top: 1rem;
+}
+
+.gallery-item {
+  flex: 0 1 200px; /* each item ~200px wide, wraps nicely */
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px; /* optional, keeps it neat */
+  margin: auto;
+}
+
+.gallery-scroll {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery-scroll img {
+  flex-shrink: 0;
+  width: 100%; /* ensures one image fills the container */
+  height: auto; /* keeps aspect ratio */
+  object-fit: contain; /* shows full image */
+  border-radius: 8px;
+}
+
+/* Button styling */
+.gallery-wrapper button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transition: 0.3s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.gallery-wrapper button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-wrapper .prev {
+  left: 10px;
+}
+
+.gallery-wrapper .next {
+  right: 10px;
+}
+
+.btn2 {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: var(--beige);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+.btn2:hover {
+  background-color: var(--hot-pink);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  /* Stack inside the existing .header-top container */
+  .header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;            /* center both blocks */
+    gap: 0.75rem;
+  }
+
+  /* Center the image itself */
+  .genesis-header-image {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+  }
+
+  .genesis-header-image img {
+    display: block;
+    width: 100%;
+    max-width: 400px;               /* don’t exceed original size */
+    height: auto;
+    margin: 0 auto;                 /* extra safety for centering */
+  }
+
+  /* Center nav links under the image and allow wrapping */
+  nav { width: 100%; }
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
